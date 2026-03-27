@@ -821,6 +821,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 114e8deb855a5ce41bdce21c858dd008, type: 2}
     - target: {fileID: 8205301232511080526, guid: 00dc368c02d68a6419a9c19e17ed22fe, type: 3}
+      propertyPath: teleportPointTo
+      value: 
+      objectReference: {fileID: 1169800734}
+    - target: {fileID: 8205301232511080526, guid: 00dc368c02d68a6419a9c19e17ed22fe, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 8205301232511080526, guid: 00dc368c02d68a6419a9c19e17ed22fe, type: 3}
