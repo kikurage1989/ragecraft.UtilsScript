@@ -16,12 +16,7 @@ jobs:
     - name: Validate Package Config
       id: config_package
       run: |
-        if [ "${{ vars.PACKAGE_NAME }}" != "" ]; then
           echo "configPackage=true" >> $GITHUB_OUTPUT;
-        else
-          echo "configPackage=false" >> $GITHUB_OUTPUT;
-        fi
-
   # Build and release the Package
   # If the repository is not configured properly, this job will be skipped
   build:
@@ -30,7 +25,7 @@ jobs:
     permissions:
       contents: write
     env:
-      packagePath: Packages/${{ vars.PACKAGE_NAME }}
+      packagePath: .
     if: needs.config.outputs.config_package == 'true'
     steps:
 
