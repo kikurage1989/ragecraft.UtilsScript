@@ -1,4 +1,5 @@
 内容
+
 syncAnimeSW：
 Interectすると指定のAnimatorへ指定のパラメータ名(bool)を切り替えて送信します。
 グローバル動作です。LateJoinにも対応しています。
