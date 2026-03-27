@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: InterectSendCustomEvent
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: de10e2d400ca6a5469e3bc7f515a3003, type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: dc4bf70317b9c644380b9e2d654d964d, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: ea6bf4a873a64b547817fc8c46c164b8, type: 3}
