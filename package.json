@@ -1,0 +1,17 @@
+{
+    "name": "com.kikurage1989.utilsscript",
+    "displayName": "ragecraft.UtilsScript",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "description": "ragecraft UtilityScript for VRC.",
+    "vpmDependencies": {
+    "com.vrchat.worlds": ">=3.7.4"
+    },
+    "author": {
+    "name": "kikurage1989",
+    "email": "kikurage1989.ki@gmail.com"
+    },
+    "legacyFolders": {},
+    "legacyFiles": {},
+    "dependencies": {}
+}
