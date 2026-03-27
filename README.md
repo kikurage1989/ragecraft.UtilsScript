@@ -40,6 +40,7 @@ Interectすると対象のUdonへCustomSendEventを実行します。
 OwnerDisplay：
 対象GameObjectのOwnerをTextMeshProへ送信するスクリプトです。
 TextMeshProUIへは送信できないので注意してください。
+3DObject->Text - TextMeshProで生成できる方です。
 
 ライセンス表記
 CustomOwnerLinker：
