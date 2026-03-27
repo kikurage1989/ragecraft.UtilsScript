@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: childSwFloat
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: ad3f6ec1d418f234c9c886246f1019ba, type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: b1b0d9b7d8a240b44914e1bee0c9c81a, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: c9e7d932698fdd7429e44fd3f8253ad5, type: 3}
@@ -61,7 +61,7 @@ MonoBehaviour:
       Data: 3|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: ragecraft.UtilsScript.syncAnimeSWFloat, Assembly-CSharp
+      Data: ragecraft.UtilsScript.syncAnimeSWFloat, ragecraft.UtilsScript
     - Name: 
       Entry: 8
       Data: 
