@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: syncAnimeSwMomentary
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 33c7204ae9c0a2a409f3882bda02f966, type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 3cb169091d20d204facf98caa2d8cc48, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: f0761a0a14d49ab44ab934d7bf5f6aa2, type: 3}
