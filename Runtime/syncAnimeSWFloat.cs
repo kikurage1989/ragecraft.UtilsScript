@@ -19,16 +19,16 @@ namespace ragecraft.UtilsScript
             {
                 if (setParameterName == null || setParameterName == "")
                 {
-                    Debug.Log("syncAnimeSWFloat:setParameterName:null");
+                    Debug.LogError("syncAnimeSWFloat:setParameterName:null");
                     return;
                 }
                 if (setParameterAnimator == null)
                 {
-                    Debug.Log("syncAnimeSWFloat:setParameterAnimator:null");
+                    Debug.LogError("syncAnimeSWFloat:setParameterAnimator:null");
                     return;
                 }
                 setParameterNameID = Animator.StringToHash(setParameterName);
-            }            
+            }
             base.Start();
         }
 
@@ -36,12 +36,14 @@ namespace ragecraft.UtilsScript
         {
             //なにかUdonSynced変数更新に付随した処理
             base.SomeUpdate();
-            int i;
-            for (i = 0; i < setParameterAnimator.Length; i++)
+            if(useAnimator)
             {
-                setParameterAnimator[i].SetFloat(setParameterNameID, udonSyncedBool[0] ? 1f : 0f);
+                int i;
+                for (i = 0; i < setParameterAnimator.Length; i++)
+                {
+                    setParameterAnimator[i].SetFloat(setParameterNameID, udonSyncedBool[0] ? 1f : 0f);
+                }
             }
-            return;
         }
     }
 }

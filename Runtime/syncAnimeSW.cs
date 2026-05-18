@@ -36,10 +36,13 @@ namespace ragecraft.UtilsScript
         {
             //なにかUdonSynced変数更新に付随した処理
             base.SomeUpdate();
-            int i;
-            for (i = 0; i < setParameterAnimator.Length; i++)
+            if(useAnimator)
             {
-                setParameterAnimator[i].SetBool(setParameterNameID, udonSyncedBool[0]);
+                int i;
+                for (i = 0; i < setParameterAnimator.Length; i++)
+                {
+                    setParameterAnimator[i].SetBool(setParameterNameID, udonSyncedBool[0]);
+                }
             }
         }
     }

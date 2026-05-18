@@ -7,41 +7,25 @@ using VRC.Udon;
 namespace ragecraft.UtilsScript
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
-    public class syncAnimeSwMomentary : UdonSharpBehaviour
+    public class syncAnimeSwMomentary : syncSW_Base
     {
-        [UdonSynced(UdonSyncMode.None)] private bool udonSyncedBool = false;
-        // [UdonSynced(UdonSyncMode.None)] private bool inputUseState = false;
-        [SerializeField] private string setParameterName;
-        [SerializeField] private Animator[] setParameterAnimator;
-        private int setParameterNameID;
-        private bool isInit = false;
-
-        void Start()
+        protected override void Start()
         {
-            if (setParameterName == null || setParameterName == "") Debug.Log("syncAnimeSwMomentary:setParameterName:null");
-            if (setParameterAnimator == null) Debug.Log("syncAnimeSwMomentary:setParameterAnimator:null");
-            setParameterNameID = Animator.StringToHash(setParameterName);
-            isInit = true;
-        }
-
-        public override void Interact()
-        {
-            InteractSW();
-        }
-        public void InteractSW()
-        {
-            if (!isInit) return;
-            //オーナ権限を委譲
-            if (!Networking.IsOwner(this.gameObject)) Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
-
-            //UdonSynced変数を更新
-            udonSyncedBool = true;
-
-            //同期をリクエスト
-            RequestSerialization();
-
-            //付随するオーナ側の更新
-            SomeUpdate();
+            if(useAnimator)
+            {
+                if (setParameterName == null || setParameterName == "")
+                {
+                    Debug.LogError("syncAnimeSwMomentary:setParameterName:null");
+                    return;
+                }
+                if (setParameterAnimator == null)
+                {
+                    Debug.LogError("syncAnimeSwMomentary:setParameterAnimator:null");
+                    return;
+                }
+                setParameterNameID = Animator.StringToHash(setParameterName);
+            }
+            base.Start();
         }
 
         //Useした瞬間と離した瞬間のみ発火
@@ -51,34 +35,37 @@ namespace ragecraft.UtilsScript
             // Debug.Log("testMomentary:" + value);
             // inputUseState = value;
 
-            if (udonSyncedBool && !value) udonSyncedBool = false;
-            //同期をリクエスト
-            RequestSerialization();
-            SomeUpdate();
+            if (udonSyncedBool[0] && !value)
+            {
+                udonSyncedBool[0] = false;
+                #if UNITY_EDITOR
+                State = udonSyncedBool[0];
+                #endif
+                RequestSerialization();
+                SomeUpdate();
+            }
         }
 
-        public override void OnDeserialization()
-        {
-            //同期変数を受信した側でも更新する
-            SomeUpdate();
-        }
-
-        public override void OnPlayerJoined(VRCPlayerApi player)
-        {
-            //プレイヤーがjoinするとこのメソッドが全プレイヤーで実行される
-            RequestSerialization(); //これが通るのはオーナのプレイヤーだけ
-            //新規joinプレイヤーにも同期変数が受信される
-        }
-
-        private void SomeUpdate()
+        protected override void SomeUpdate()
         {
             //なにかUdonSynced変数更新に付随した処理
-            int i;
-            for (i = 0; i < setParameterAnimator.Length; i++)
+            base.SomeUpdate();
+            if(useAnimator)
             {
-                setParameterAnimator[i].SetBool(setParameterNameID, udonSyncedBool);
+                int i;
+                for (i = 0; i < setParameterAnimator.Length; i++)
+                {
+                    setParameterAnimator[i].SetBool(setParameterNameID, udonSyncedBool[0]);
+                }
             }
-            return;
         }
+
+        protected override void ChangeUdonSyncedValue()
+        {
+            udonSyncedBool[0] = true;
+            #if UNITY_EDITOR
+            State = udonSyncedBool[0];
+            #endif
+        }  
     }
 }
