@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -13,16 +14,21 @@ namespace ragecraft.UtilsScript
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class syncSW_Base : UdonSharpBehaviour
     {
-        [UdonSynced(UdonSyncMode.None)] public bool[] udonSyncedBool = new bool[1];
+        [UdonSynced(UdonSyncMode.None)][System.NonSerialized] public bool[] udonSyncedBool = new bool[1];
+        
+        #if UNITY_EDITOR
+        [SerializeField, Tooltip("状態デバッグ表示専用")] protected bool State;
+        #endif
+
         [SerializeField] protected bool useTransform;
-        [SerializeField] protected Vector3 SwMove;
-        [SerializeField] protected Vector3 SwRotation;
+        [SerializeField, Tooltip("SwOn時の、このオブジェクトの移動量")] protected Vector3 SwMove;
+        [SerializeField, Tooltip("SwOn時の、このオブジェクトの回転量")] protected Vector3 SwRotation;
         protected Vector3 initialPosition;
         protected Vector3 initialRotation;
         protected Vector3 changeSwPotison;
         protected Vector3 changeSwRotation;
 
-        [SerializeField] protected bool useAnimator;
+        [SerializeField] protected bool useAnimator = true;
         [SerializeField] protected string setParameterName;
         [SerializeField] protected Animator[] setParameterAnimator;
         protected int setParameterNameID;
@@ -112,6 +118,9 @@ namespace ragecraft.UtilsScript
         protected virtual void ChangeUdonSyncedValue()
         {
             udonSyncedBool[0] = !udonSyncedBool[0];
+            #if UNITY_EDITOR
+            State = udonSyncedBool[0];
+            #endif
         }   
     }
 }
