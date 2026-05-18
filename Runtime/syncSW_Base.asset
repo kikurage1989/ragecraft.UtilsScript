@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
-  m_Name: syncAnimeSW
+  m_Name: syncSW_Base
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 34889bd21a5ed764fb00b942e95fd05c, type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 3c6fe6665d63bd541bf899bc3db866e7, type: 2}
   udonAssembly: 
   assemblyError: 
-  sourceCsScript: {fileID: 11500000, guid: 93c1216465b81e840868e2723d08f5c0, type: 3}
+  sourceCsScript: {fileID: 11500000, guid: 9c56160a5dc02e74fa7a4377f16f3a1f, type: 3}
   scriptVersion: 2
   compiledVersion: 2
   behaviourSyncMode: 4
   hasInteractEvent: 1
-  scriptID: -5714845507016182110
+  scriptID: 177731917643265791
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
