@@ -28,7 +28,7 @@ namespace ragecraft.UtilsScript
         protected int setParameterNameID;
         protected bool isInit = false;
 
-        protected void Start()
+        protected virtual void Start()
         {
             if(useTransform)
             {
@@ -38,20 +38,20 @@ namespace ragecraft.UtilsScript
                 changeSwRotation = initialRotation + SwRotation;
             }
 
-            if(useAnimator)
-            {
-                if (setParameterName == null || setParameterName == "")
-                {
-                    Debug.LogError("syncAnimeSW:setParameterName:null");
-                    return;
-                }
-                if (setParameterAnimator == null)
-                {
-                    Debug.LogError("syncAnimeSW:setParameterAnimator:null");
-                    return;
-                }
-                setParameterNameID = Animator.StringToHash(setParameterName);
-            }
+            // if(useAnimator)
+            // {
+            //     if (setParameterName == null || setParameterName == "")
+            //     {
+            //         Debug.LogError("syncAnimeSW:setParameterName:null");
+            //         return;
+            //     }
+            //     if (setParameterAnimator == null)
+            //     {
+            //         Debug.LogError("syncAnimeSW:setParameterAnimator:null");
+            //         return;
+            //     }
+            //     setParameterNameID = Animator.StringToHash(setParameterName);
+            // }
             // Debug.Log("syncAnimeSW:Init");
             isInit = true;
         }

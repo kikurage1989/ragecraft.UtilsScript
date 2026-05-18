@@ -18,22 +18,24 @@ namespace ragecraft.UtilsScript
         // private int setParameterNameID;
         // private bool isInit = false;
 
-        // void Start()
-        // {
-        //     if (setParameterName == null || setParameterName == "")
-        //     {
-        //         Debug.Log("syncAnimeSW:setParameterName:null");
-        //         return;
-        //     }
-        //     if (setParameterAnimator == null)
-        //     {
-        //         Debug.Log("syncAnimeSW:setParameterAnimator:null");
-        //         return;
-        //     }
-        //     setParameterNameID = Animator.StringToHash(setParameterName);
-        //     // Debug.Log("syncAnimeSW:Init");
-        //     isInit = true;
-        // }
+        protected override void Start()
+        {
+            if(useAnimator)
+            {
+                if (setParameterName == null || setParameterName == "")
+                {
+                    Debug.LogError("syncAnimeSW:setParameterName:null");
+                    return;
+                }
+                if (setParameterAnimator == null)
+                {
+                    Debug.LogError("syncAnimeSW:setParameterAnimator:null");
+                    return;
+                }
+                setParameterNameID = Animator.StringToHash(setParameterName);
+            }
+            base.Start();
+        }
 
         // public override void Interact()
         // {
